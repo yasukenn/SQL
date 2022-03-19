@@ -48,3 +48,72 @@ VALUES ('40', '福岡', '福岡')
 --コード26の場合
 UPDATE 都道府県 SET 県庁所在地 = '京都'
 WHERE コード = '26'
+
+--コード40の場合
+UPDATE 都道府県 SET 地域 = '九州', 面積 = 4976
+WHERE コード = '40'
+
+2-6
+DELETE FROM 都道府県
+WHERE コード = '26'
+
+3-1-1
+SELECT * FROM 気象観測
+WHERE 月 = 6
+
+3-1-2
+SELECT * FROM 気象観測
+WHERE 月 <> 6
+
+3-1-3
+SELECT * FROM 気象観測
+WHERE 降水量 < 100
+
+3-1-4
+SELECT * FROM 気象観測
+WHERE 降水量 > 200
+
+3-1-5
+SELECT * FROM 気象観測
+WHERE 最高気温 >= 30
+
+3-1-6
+SELECT * FROM 気象観測
+WHERE 最低気温 <= 0
+
+3-1-7-1
+SELECT * FROM 気象観測
+WHERE 月 IN(3, 5, 7)
+
+3-1-7-2
+SELECT * FROM 気象観測
+WHERE 月 = 3 OR 月 = 5 OR 月 = 7
+
+3-1-8-1
+SELECT * FROM 気象観測
+WHERE 月 NOT IN(3, 5, 7)
+
+3-1-8-2
+SELECT * FROM 気象観測
+WHERE 月 <> 3 AND 月 <> 5 AND 月 <> 7
+
+3-1-9
+SELECT * FROM 気象観測
+WHERE 降水量 <= 100
+  AND 湿度 < 50
+
+3-1-10
+SELECT * FROM 気象観測
+WHERE 最低気温 < 5
+   OR 最高気温 > 35
+
+3-1-11-1
+SELECT * FROM 気象観測
+WHERE 湿度 BETWEEN 60 AND 79
+
+3-1-11-2
+SELECT * FROM 気象観測
+WHERE 湿度 >= 60 
+  AND 湿度 <= 79
+
+3-1-12
