@@ -120,3 +120,24 @@ WHERE 湿度 >= 60
 SELECT * FROM 気象観測
 WHERE 降水量 IS NULL OR 最高気温 IS NULL
    OR 最低気温 IS NULL OR 湿度 IS NULL
+
+3-2-1
+SELECT * FROM 都道府県
+WHERE 都道府県名 LIKE '%川'
+
+3-2-2
+SELECT * FROM 都道府県
+WHERE 都道府県名 LIKE '%島%'
+
+3-2-3
+SELECT * FROM 都道府県
+WHERE 都道府県名 LIKE '愛%'
+
+3-2-4
+SELECT * FROM 都道府県
+WHERE 都道府県名 = 県庁所在地
+
+3-2-5
+SELECT * FROM 都道府県
+WHERE 都道府県名 <> 県庁所在地
+
