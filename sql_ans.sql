@@ -123,21 +123,70 @@ WHERE 降水量 IS NULL OR 最高気温 IS NULL
 
 3-2-1
 SELECT * FROM 都道府県
-WHERE 都道府県名 LIKE '%川'
+ WHERE 都道府県名 LIKE '%川'
 
 3-2-2
 SELECT * FROM 都道府県
-WHERE 都道府県名 LIKE '%島%'
+ WHERE 都道府県名 LIKE '%島%'
 
 3-2-3
 SELECT * FROM 都道府県
-WHERE 都道府県名 LIKE '愛%'
+ WHERE 都道府県名 LIKE '愛%'
 
 3-2-4
 SELECT * FROM 都道府県
-WHERE 都道府県名 = 県庁所在地
+ WHERE 都道府県名 = 県庁所在地
 
 3-2-5
 SELECT * FROM 都道府県
-WHERE 都道府県名 <> 県庁所在地
+ WHERE 都道府県名 <> 県庁所在地
 
+3-3-1
+SELECT * FROM 成績表
+
+3-3-2
+INSERT INTO 成績表
+VALUES('S001', '織田　信長', 77, 55, 80, 75, 93, NULL);
+INSERT INTO 成績表
+VALUES('A002', '豊臣　秀吉', 45, 55, 65, 75, 85, NULL);
+INSERT INTO 成績表
+VALUES('S001', '徳川　家康', 90, 80, 70, 60, 50, NULL);
+
+3-3-3
+UPDATE 成績表 SET 法学 = 85, 哲学 = 67
+ WHERE 学籍番号 = 'S001'
+
+3-3-4
+UPDATE 成績表 SET 外国語 = 81
+ WHERE 学籍番号 IN ('A002', 'E003')
+
+3-3-5-1
+UPDATE 成績表 SET 総合成績 = 'A'
+ WHERE 法学 >= 80 AND 経済学 >= 80 AND
+       哲学 >= 80 AND 情報理論 >= 80 AND
+       外国語 >= 80
+
+3-3-5-2
+UPDATE 成績表 SET 総合成績 = 'B'
+ WHERE (法学 >= 80 OR 外国語 >= 80) AND
+       (哲学 >= 80 OR 経済学 >= 80) AND
+       総合成績 IS NULL
+
+3-3-5-3
+UPDATE 成績表 SET 総合成績 = 'D'
+ WHERE 法学 < 50 AND 経済学 < 50 AND
+       哲学 < 50 AND 情報理論 < 50 AND
+       外国語 < 50 AND 総合成績 IS NULL
+
+3-3-5-4
+UPDATE 成績表 SET 総合成績 = 'C'
+ WHERE 総合成績 IS NULL
+
+3-3-6
+DELETE FROM 成績表
+ WHERE 法学 = 0 OR 外国語 = 0 OR
+       哲学 = 0 OR 経済学 = 0 OR
+       情報理論 = 0
+
+3-4
+1:月, 2:コード, 3:学籍番号
